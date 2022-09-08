@@ -1,0 +1,8 @@
+*) Ethers.js:
+    -> Ethers js is library to that written in javascript and make possible to interact from any javascript app with ethereum blockchain and its ecosystem
+    -> https://docs.ethers.io/v5/
+
+*) About this tutorial:
+    -> Setup: https://github.com/dappuniversity/ethers_examples
+    -> Here we will not make any kind of smart contract rather we will focus on learning ethers.js and we will interact with deployed smart contract in ethereum blockchain
+    -> we will interact with blockchain using javascript script
