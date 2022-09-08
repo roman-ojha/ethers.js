@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "env-cmd nodemon ./04_Create_Transactions/app.ts"
+    "dev": "env-cmd nodemon ./05_Write_Contract/app.ts"
   },
   "author": "",
   "license": "ISC",

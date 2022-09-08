@@ -53,6 +53,8 @@ async function main() {
     // value to transfer
     value: ethers.utils.parseEther("0.00003"),
   });
+  // we will wait until transaction get mined
+  await tx.wait();
   console.log(tx);
 
   // sender_account balance after transfer
