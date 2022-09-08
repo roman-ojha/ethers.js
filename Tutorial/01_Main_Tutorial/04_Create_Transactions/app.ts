@@ -8,16 +8,15 @@ const provider = new ethers.providers.JsonRpcBatchProvider(
 );
 
 // we need the address of sender and receiver and we will use metamask account
-const sender_account = process.env
-  .METAMASK_ROPSTEN_SENDER_ACCOUNT_ADDRESS as string;
+const sender_account = process.env.METAMASK_SENDER_ACCOUNT_ADDRESS as string;
 const receiver_account = process.env
-  .METAMASK_ROPSTEN_RECEIVER_ACCOUNT_ADDRESS as string;
+  .METAMASK_RECEIVER_ACCOUNT_ADDRESS as string;
 
 // as well as we need private key of the account to access/control/authenticate to wallet
 const sender_private_key = process.env
-  .METAMASK_ROPSTEN_SENDER_ACCOUNT_PRIVATE_KEY as string;
+  .METAMASK_SENDER_ACCOUNT_PRIVATE_KEY as string;
 const receiver_private_key = process.env
-  .METAMASK_ROPSTEN_RECEIVER_ACCOUNT_PRIVATE_KEY as string;
+  .METAMASK_RECEIVER_ACCOUNT_PRIVATE_KEY as string;
 
 // Creating new wallet Instance
 const sender_wallet = new ethers.Wallet(sender_private_key, provider);

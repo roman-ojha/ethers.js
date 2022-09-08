@@ -18,15 +18,14 @@ const provider = new ethers.providers.JsonRpcBatchProvider(
   `https://goerli.infura.io/v3/${INFURA_API}`
 );
 
-const sender_account = process.env
-  .METAMASK_ROPSTEN_SENDER_ACCOUNT_ADDRESS as string;
+const sender_account = process.env.METAMASK_SENDER_ACCOUNT_ADDRESS as string;
 const receiver_account = process.env
-  .METAMASK_ROPSTEN_RECEIVER_ACCOUNT_ADDRESS as string;
+  .METAMASK_RECEIVER_ACCOUNT_ADDRESS as string;
 
 const sender_private_key = process.env
-  .METAMASK_ROPSTEN_SENDER_ACCOUNT_PRIVATE_KEY as string;
+  .METAMASK_SENDER_ACCOUNT_PRIVATE_KEY as string;
 const receiver_private_key = process.env
-  .METAMASK_ROPSTEN_RECEIVER_ACCOUNT_PRIVATE_KEY as string;
+  .METAMASK_RECEIVER_ACCOUNT_PRIVATE_KEY as string;
 
 const sender_wallet = new ethers.Wallet(sender_private_key, provider);
 const receiver_wallet = new ethers.Wallet(receiver_private_key, provider);
