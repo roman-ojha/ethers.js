@@ -1,0 +1,96 @@
+*) Metamask Interaction methods:
+    -> https://docs.metamask.io/guide/rpc-api.html#table-of-contents
+    *) request permission to connect to the metamask:
+        const accounts = await window.ethereum.request({
+        method: "wallet_requestPermissions",
+        params: [
+            {
+            eth_accounts: {},
+            },
+        ],
+        });
+
+    *) calling method using ethers provider
+        await provider.send("wallet_requestPermissions", [
+        {
+            eth_accounts: {},
+        },
+        ]);
+
+    *) get all the account from metamask:
+        const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+        });
+        console.log(accounts[0]);
+
+    *) get metamask account balance:
+        const balance = await window.ethereum.request({
+        method: "eth_getBalance",
+        params: [accounts[0], "latest"],
+        });
+        // balance in hex
+        // so we have to convert it into eth
+        const balanceInEth = ethers.formatEther(balance);
+        console.log(balanceInEth);
+
+    *) Event that will get run when we change account in metamask, and we can reflect into the application
+        window.ethereum.on("accountsChanged", (accounts: []) => {
+        console.log(accounts);
+        });
+
+    *) Event that will get run when we change the chain|network in metamask
+        window.ethereum.on("chainChanged", (chain: any) => {
+            console.log(chain);
+        });
+
+    *) Function to add/switch the network or chain id, you can find it's parameter in the internet:
+        await window.ethereum.request({
+            method: "wallet_addEthereumChain",
+            params: [
+                {
+                chainId: `0x${Number(13881).toString(16)}`,
+                chainName: "Polygon Testnet",
+                nativeCurrency: {
+                    name: "MATIC",
+                    symbol: "MATIC",
+                    decimals: 18,
+                },
+                rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
+                blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+                },
+            ],
+        });
+
+    *) Method to change/switch the ethereum chain or network:
+        async function changeChain() {
+            const switchChain = async () => {
+                await window.ethereum.request({
+                method: "wallet_switchEthereumChain",
+                params: [
+                    {
+                    chainId: "0x1",
+                    },
+                ],
+                });
+            };
+
+        }
+    
+    *) Send Transaction:
+        const sendTransaction = async () => {
+            const accounts = await window.ethereum.request({
+            method: "eth_requestAccounts",
+            });
+            await window.ethereum.request({
+            method: "eth_sendTransaction",
+            params: [
+                {
+                to: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+                from: accounts[0],
+                // value: "0x3B9ACA00", // in hex
+                value: `0x${parseInt(ethers.parseEther("0.1").toString(16))}`,
+                chainId: "0x31337",
+                },
+            ],
+            });
+        };

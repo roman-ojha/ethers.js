@@ -1,0 +1,11 @@
+*) More about ether.js:
+    -> https://github.com/kshitijofficial/etherJS
+    -> https://www.youtube.com/watch?v=qtlqfvQJ_9s&list=PLR0uCBk15bq-7a6UHgEV45XfKXvCmwuo6&index=7
+    -> https://github.com/kshsri21/hardhatDapp/blob/main/src/App.js
+    -> https://www.youtube.com/watch?v=Fv_jOMQvEZ8
+
+    -> Project:
+        -> https://github.com/shuvishubham/web3-fundraiser-youtube
+
+    -> Hardhat & EtherJS:
+        -> https://www.youtube.com/watch?v=bitdGa9Se-8&list=PLR0uCBk15bq-7a6UHgEV45XfKXvCmwuo6&index=1
